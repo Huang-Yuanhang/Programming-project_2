@@ -1,0 +1,82 @@
+BoxLayout:
+    orientation: "vertical"
+    size_hint_x: 0.2
+
+    Label:
+        text: "Sort by:"
+        size_hint_y: None
+        height: dp(50)
+
+    Spinner:
+        id: sorter_spinner
+        text: 'Please choose a key'
+        height: dp(60)
+        size_hint_y: None
+        values: ('name', 'country', 'priority', 'is_visited')
+        on_text: app.sort_places(sorter_spinner.text)
+
+    Label:
+        text: "Add New Place..."
+        size_hint_y: None
+        height: dp(80)
+
+    Label:
+        text: "Name"
+        size_hint_y: None
+        height: dp(60)
+
+    TextInput:
+        write_tab: False
+        id: name_input
+        size_hint_y: None
+        height: dp(50)
+
+    Label:
+        text: "Country"
+        size_hint_y: None
+        height: dp(60)
+
+    TextInput:
+        write_tab: False
+        size_hint_y: None
+        height: dp(50)
+        id: country_input
+
+    Label:
+        text: "Priority"
+        size_hint_y: None
+        height: dp(60)
+
+    TextInput:
+        write_tab: False
+        id: priority_input
+        size_hint_y: None
+        height: dp(50)
+
+    Button:
+        text: "Add Place"
+        size_hint_y: 2
+        on_press: app.add_place(name_input, country_input, priority_input)
+
+    Button:
+        text: "Clear"
+        size_hint_y: 2
+        on_press: app.clear_input_fields(name_input, country_input, priority_input)
+
+BoxLayout:
+    orientation: "vertical"
+    size_hint_x: 0.7
+
+    Label:
+        id: top_bar_label
+        size_hint_y: None
+        height: 50
+
+    BoxLayout:
+        orientation: 'vertical'
+        id: place_list_layout
+
+    Label:
+        id: bottom_bar_label
+        height: 50
+        size_hint_y: None
